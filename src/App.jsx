@@ -1,11 +1,12 @@
 import Home from "./pages/home/Home";
 import Topbar from "./components/topbar/topbar";
+import Single from "./pages/single/Single";
 
 function App() {
   return (
     <>
       <Topbar />
-      <Home />
+      <Single />
     </>
   )
 }
