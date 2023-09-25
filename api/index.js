@@ -1,11 +1,17 @@
 const express = require("express");
 const app = express();
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
 
-app.use("/", (req, res)=> {
-    console.log('This is the boss');
-})
+dotenv.config();
 
+mongoose.connect(process.env.MONGO_URL, {
+    useNewUrlParser: true, 
+    useUnifiedTopology: true,
+    })
+    .then(() => console.log('Connected to MongoDB'))
+    .catch((err) => {console.error(err);});
 
 app.listen("5000", () =>{
     console.log('Backend server is running');
-})
+});
