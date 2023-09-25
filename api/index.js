@@ -5,6 +5,7 @@ const dotenv = require("dotenv");
 const helmet = require("helmet"); //DOES NOTHING HERE; REMEMBER TO REMOVE
 const morgan = require("morgan");
 const authRoute = require("./routes/auth");
+const userRoute = require("./routes/users");
 
 dotenv.config();
 
@@ -22,6 +23,7 @@ app.use(morgan("common"))
 
 
 app.use("/api/auth", authRoute);
+app.use("/api/users", userRoute);
 
 app.listen("5000", () =>{
     console.log('Backend server is running');
