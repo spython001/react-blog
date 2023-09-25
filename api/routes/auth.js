@@ -1,4 +1,5 @@
-const router = ("express").Router();
+const router = require("express").Router();
+const { models } = require("mongoose");
 const User = require("../models/User");
 
 //REGISTER
@@ -16,3 +17,5 @@ router.post("/register", async(req, res) => {
         res.status(500).json(err);
     }
 })
+
+module.exports = router;
