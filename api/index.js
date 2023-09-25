@@ -6,7 +6,6 @@ const helmet = require("helmet");
 const authRoute = require("./routes/auth");
 
 dotenv.config();
-app.use(express.json());
 
 mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true, 
@@ -16,7 +15,9 @@ mongoose.connect(process.env.MONGO_URL, {
     .catch((err) => {console.error(err);});
 
 //MIDDLE-WARES
+app.use(express.json());
 app.use(helmet());
+
 
 app.use("/api/auth", authRoute);
 
