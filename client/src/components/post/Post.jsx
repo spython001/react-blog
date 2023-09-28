@@ -1,35 +1,31 @@
+/* eslint-disable react/prop-types */
 import "./post.css"
 
-export default function Post() {
+export default function Post({post}) {
   return (
     <div className="post">
+      { post.photo && (
         <img
           className="postImg"
-          src="https://images.pexels.com/photos/6685428/pexels-photo-6685428.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" 
+          src={ post.photo } 
           alt="" 
         />
+      )}
         <div className="postInfo">
             <div className="postCats">
-                <span className="postCat">Music</span>
-                <span className="postCat">Life</span>
+              {post.categories.map(c=>(
+                <span className="postCat" key={c.name}>{c}</span>
+              ))}
             </div>
             
             <span className="postTitle">
-                Lorem, ipsum dolor sit amet
+              { post.title }
             </span>
             <hr />
-            <span className="postDate">1 hour ago</span>
+            <span className="postDate">{new Date(post.createdAt).toDateString()}</span>
         </div>
         <p className="postDesc">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-            Blanditiis alias fugit nesciunt nulla error architecto beatae, provident accusamus rerum sint facere doloremque, et ea. 
-            Molestias nobis reiciendis asperiores voluptates a!
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-            Blanditiis alias fugit nesciunt nulla error architecto beatae, provident accusamus rerum sint facere doloremque, et ea. 
-            Molestias nobis reiciendis asperiores voluptates a!
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-            Blanditiis alias fugit nesciunt nulla error architecto beatae, provident accusamus rerum sint facere doloremque, et ea. 
-            Molestias nobis reiciendis asperiores voluptates a!
+          {post.desc}
         </p>
     </div>
   )
