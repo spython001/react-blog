@@ -7,6 +7,9 @@ export default defineConfig({
   server: {
     host: true
   },
+  optimizeDeps: {
+    include: ['*.js'], // Include all .js files in your project
+  },
   esbuild: {
     loader: "jsx",
     include: [
