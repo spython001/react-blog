@@ -9,8 +9,10 @@ const userRoute = require("./routes/users");
 const postRoute = require("./routes/posts");
 const catRoute = require("./routes/categories");
 const multer = require("multer");
+const path = require("path");
 
 dotenv.config();
+app.use("/images", express.static(path.join(__dirname, "/images")));
 
 mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true, 
@@ -25,7 +27,7 @@ const storage = multer.diskStorage({
         callback(null, "images")
     },
     filename:(req,file,callback) => {
-        callback(null, "hello.jpeg")
+        callback(null, req.body.name)
     },
 });
 
