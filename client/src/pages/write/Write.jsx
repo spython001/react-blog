@@ -1,6 +1,5 @@
 import axios from "axios"
-import { useContext } from "react"
-import { useState } from "react"
+import { useContext, useState } from "react";
 import { Context } from "../../context/Context"
 import "./write.css"
 

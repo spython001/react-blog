@@ -1,19 +1,13 @@
 /* eslint-disable react/prop-types */
 import "./post.css"
 import { Link } from "react-router-dom";
-import axios from "axios";
+
 
 export default function Post({post}) {
-  const PF = axios.post("http://localhost:5000/images/")
+  const PF = "/api/images/"
   return (
     <div className="post">
-      { post.photo && (
-        <img
-          className="postImg"
-          src={PF+post.photo} 
-          alt="" 
-        />
-      )}
+      { post.photo && <img className="postImg" src={PF + post.photo}  alt="" />}
         <div className="postInfo">
             <div className="postCats">
               {post.categories.map(c=>(
