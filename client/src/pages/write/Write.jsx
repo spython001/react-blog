@@ -24,12 +24,12 @@ export default function Write() {
       newPost.photo = filename;
       try {
         await axios.post("http://localhost:5000/api/upload", data);
-      } catch (err) {}
+      } catch (err) {err}
     }
     try {
       const res = await axios.post("http://localhost:5000/api/posts", newPost);
       window.location.replace("/post/"+res.data._id);
-    } catch (err) {}
+    } catch (err) {err}
   }
   return (
     <div className="write">
